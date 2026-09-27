@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/helpers.php';
+require_once __DIR__ .'/helpers.php';
 
 $siteName = 'KursusKu UIN';
 $tagline = 'Belajar, daftar, dan kelola kursus dalam satu tempat.';
@@ -64,6 +64,7 @@ $courses = [
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= htmlspecialchars($siteName) ?></title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body> 

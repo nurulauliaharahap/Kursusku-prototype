@@ -1,0 +1,442 @@
+<?php
+// Menyimpan hasil data form
+$hasil = null;
+
+// Mengecek apakah form dikirim dengan POST
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // Mengambil data dari form
+    $nama = $_POST["nama"] ?? "";
+    $email = $_POST["email"] ?? "";
+    $status = $_POST["status"] ?? "";
+    $minat = $_POST["minat"] ?? [];
+    $catatan = $_POST["catatan"] ?? "";
+    $week = $_POST["week"] ?? "";
+
+    // Mengubah data menjadi aman untuk ditampilkan
+    $nama = htmlspecialchars($nama);
+    $email = htmlspecialchars($email);
+    $status = htmlspecialchars($status);
+    $catatan = htmlspecialchars($catatan);
+    $week = htmlspecialchars($week);
+
+    // Menggabungkan checkbox
+    $minatAman = [];
+
+    foreach ($minat as $item) {
+        $minatAman[] = htmlspecialchars($item);
+    }
+
+    $hasil = [
+        "nama" => $nama,
+        "email" => $email,
+        "status" => $status,
+        "minat" => $minatAman,
+        "catatan" => $catatan,
+        "week" => $week
+    ];
+}
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Form Pendaftaran KursusKu</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #2563eb;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2563eb;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .pilihan {
+            margin: 8px 0;
+        }
+
+        .pilihan label {
+            display: inline;
+            font-weight: normal;
+            margin-left: 5px;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .hasil {
+            margin-top: 25px;
+            padding: 20px;
+            background: #eef6ff;
+            border-left: 5px solid #2563eb;
+            border-radius: 6px;
+        }
+
+        .hasil p {
+            margin: 8px 0;
+        }
+
+        .hasil ul {
+            margin-top: 5px;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                margin: 15px;
+                padding: 18px;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            header {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>KursusKu</h1>
+    <p>Form Pendaftaran Kursus</p>
+</header>
+
+<nav>
+    <a href="index.php">Beranda</a>
+    <a href="katalog.php">Katalog</a>
+    <a href="registration.php">Daftar</a>
+</nav>
+
+<div class="container">
+
+    <h2>Form Pendaftaran</h2>
+
+    <!-- FORM -->
+    <form method="POST" action="registration.php">
+
+        <!-- Nama -->
+        <div class="form-group">
+
+            <label for="nama">
+                Nama Lengkap
+            </label>
+
+            <input
+                type="text"
+                id="nama"
+                name="nama"
+                required
+                minlength="3"
+                placeholder="Masukkan nama lengkap"
+                oninvalid="this.setCustomValidity('Nama lengkap harus diisi minimal 3 karakter.')"
+                oninput="this.setCustomValidity('')"
+            >
+
+        </div>
+
+
+        <!-- Email -->
+        <div class="form-group">
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="contoh@email.com"
+            >
+
+        </div>
+
+
+        <!-- Radio -->
+        <div class="form-group">
+
+            <label>
+                Status
+            </label>
+
+            <div class="pilihan">
+
+                <input
+                    type="radio"
+                    id="mahasiswa"
+                    name="status"
+                    value="Mahasiswa"
+                    required
+                >
+
+                <label for="mahasiswa">
+                    Mahasiswa
+                </label>
+
+            </div>
+
+            <div class="pilihan">
+
+                <input
+                    type="radio"
+                    id="umum"
+                    name="status"
+                    value="Umum"
+                >
+
+                <label for="umum">
+                    Umum
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- Checkbox -->
+        <div class="form-group">
+
+            <label>
+                Pilih Minat
+            </label>
+
+            <div class="pilihan">
+
+                <input
+                    type="checkbox"
+                    id="web"
+                    name="minat[]"
+                    value="Web Programming"
+                >
+
+                <label for="web">
+                    Web Programming
+                </label>
+
+            </div>
+
+            <div class="pilihan">
+
+                <input
+                    type="checkbox"
+                    id="database"
+                    name="minat[]"
+                    value="Database"
+                >
+
+                <label for="database">
+                    Database
+                </label>
+
+            </div>
+
+            <div class="pilihan">
+
+                <input
+                    type="checkbox"
+                    id="uiux"
+                    name="minat[]"
+                    value="UI/UX"
+                >
+
+                <label for="uiux">
+                    UI/UX
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- Textarea -->
+        <div class="form-group">
+
+            <label for="catatan">
+                Catatan
+            </label>
+
+            <textarea
+                id="catatan"
+                name="catatan"
+                placeholder="Tulis catatan Anda..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- Hidden -->
+        <input
+            type="hidden"
+            name="week"
+            value="week-05"
+        >
+
+
+        <!-- Tombol -->
+        <button type="submit">
+            Daftar Sekarang
+        </button>
+
+    </form>
+
+
+    <!-- HASIL FORM -->
+    <?php if ($hasil !== null): ?>
+
+        <div class="hasil">
+
+            <h2>Data Berhasil Dikirim</h2>
+
+            <p>
+                <strong>Nama:</strong>
+                <?= $hasil["nama"]; ?>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <?= $hasil["email"]; ?>
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <?= $hasil["status"]; ?>
+            </p>
+
+            <p>
+                <strong>Minat:</strong>
+            </p>
+
+            <?php if (!empty($hasil["minat"])): ?>
+
+                <ul>
+
+                    <?php foreach ($hasil["minat"] as $item): ?>
+
+                        <li>
+                            <?= $item; ?>
+                        </li>
+
+                    <?php endforeach; ?>
+
+                </ul>
+
+            <?php else: ?>
+
+                <p>Belum memilih minat.</p>
+
+            <?php endif; ?>
+
+
+            <p>
+                <strong>Catatan:</strong>
+                <?= nl2br($hasil["catatan"]); ?>
+            </p>
+
+            <p>
+                <strong>Week:</strong>
+                <?= $hasil["week"]; ?>
+            </p>
+
+        </div>
+
+    <?php endif; ?>
+
+</div>
+
+</body>
+</html>

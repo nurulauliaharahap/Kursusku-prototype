@@ -1,0 +1,58 @@
+PERBANDINGAN LOCAL DAN HOSTING
+Project: KursusKu
+
+1. URL
+Local:
+http://localhost/kursusku-prototype/
+
+Hosting:
+https://namadomain.com/
+
+2. Lokasi File
+Local:
+File project KursusKu disimpan di komputer dan dijalankan menggunakan Laragon.
+
+Hosting:
+File project KursusKu disimpan pada server hosting.
+
+3. Database
+Local:
+Database menggunakan MySQL/MariaDB yang dijalankan di komputer.
+
+Hosting:
+Database menggunakan database yang disediakan oleh hosting.
+
+4. Environment
+Local:
+Menggunakan Laragon sebagai lingkungan server lokal.
+
+Hosting:
+Menggunakan lingkungan server yang disediakan oleh hosting.
+
+5. HTTPS
+Local:
+Project digunakan untuk pengujian di komputer lokal.
+
+Hosting:
+Project sebaiknya menggunakan HTTPS untuk keamanan.
+
+6. Debug
+Local:
+Proses debugging lebih mudah dilakukan karena project dijalankan di komputer sendiri.
+
+Hosting:
+Debugging dilakukan pada server hosting dan harus menyesuaikan konfigurasi server.
+
+7. Secret
+Local:
+Data rahasia digunakan hanya untuk pengujian dan tidak dibagikan.
+
+Hosting:
+Data rahasia seperti password database harus disimpan dengan aman.
+
+8. Document Root
+Local:
+Project diletakkan pada folder web server Laragon.
+
+Hosting:
+Project diletakkan pada document root yang disediakan oleh hosting.
