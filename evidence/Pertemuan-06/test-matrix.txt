@@ -1,0 +1,41 @@
+TEST MATRIX PERTEMUAN 6
+KursusKu UIN
+
+Hasil pengujian fitur pendaftaran kursus KursusKu UIN.
+
+No | Skenario                  | Actual                         | Expected                       | Status
+---------------------------------------------------------------------------------------------------------
+1  | Mahasiswa, Web Dasar,     | Rp 240.000                     | Rp 240.000                     | PASS
+   | 1 paket                   |                                |                                |
+---------------------------------------------------------------------------------------------------------
+2  | Guru, PHP Dasar, 1 paket  | Rp 340.000                     | Rp 340.000                     | PASS
+---------------------------------------------------------------------------------------------------------
+3  | Umum, Laravel Dasar,      | Rp 500.000                     | Rp 500.000                     | PASS
+   | 1 paket                   |                                |                                |
+---------------------------------------------------------------------------------------------------------
+4  | Mahasiswa, Web Dasar,     | Rp 480.000                     | Rp 480.000                     | PASS
+   | 2 paket                   |                                |                                |
+---------------------------------------------------------------------------------------------------------
+5  | Nama kosong               | Nama wajib diisi.              | Nama wajib diisi.              | PASS
+---------------------------------------------------------------------------------------------------------
+6  | Email tidak valid         | Email tidak valid.             | Email tidak valid.             | PASS
+---------------------------------------------------------------------------------------------------------
+7  | Minat kosong              | Belum memilih minat.           | Belum memilih minat.           | PASS
+---------------------------------------------------------------------------------------------------------
+8  | 3 minat                   | Frontend, Backend, Database    | Frontend, Backend, Database    | PASS
+---------------------------------------------------------------------------------------------------------
+9  | Metode Online             | Tatap Muka                     | Tatap Muka                     | PASS
+---------------------------------------------------------------------------------------------------------
+10 | Metode Hybrid             | Hybrid                         | Hybrid                         | PASS
+---------------------------------------------------------------------------------------------------------
+11 | GET process.php            | Redirect ke register.php      | Redirect ke register.php      | PASS
+---------------------------------------------------------------------------------------------------------
+12 | Tambah fasilitas          | Dirender otomatis dengan      | Dirender otomatis dengan      | PASS
+   |                           | foreach                       | foreach
+---------------------------------------------------------------------------------------------------------
+
+KESIMPULAN:
+
+Berdasarkan hasil pengujian, fitur utama pendaftaran kursus
+pada website KursusKu UIN berjalan sesuai dengan hasil yang
+diharapkan. Seluruh skenario pengujian mendapatkan status PASS.

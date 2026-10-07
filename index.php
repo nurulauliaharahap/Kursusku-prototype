@@ -69,12 +69,25 @@ $courses = [
 
 <body> 
   <header>
-    <nav aria-label="Navigasi utama"> <a href="index.php"> <strong><?= htmlspecialchars($siteName) ?></strong> </a> <a href="#keunggulan">Keunggulan</a> <a href="#katalog">Katalog</a> <a href="#alur">Cara Daftar</a> <a href="#kontak">Kontak</a> </nav>
+    <nav aria-label="Navigasi utama"> 
+    <a href="index.php"> <strong><?= htmlspecialchars($siteName) ?></strong> </a> 
+    <a href="#keunggulan">Keunggulan</a> 
+    <a href="#katalog">Katalog</a> 
+    <a href="#alur">Cara Daftar</a> 
+    <a href="#kontak">Kontak</a> 
+    <a href="history.php">history</a>
+    <a href="register.php">Daftar P6</a>
+    <a href="registration.php">From P5</a>
+    <a href="test-matriks.php">Test Matrix</a>
+    <a href="registration.php" class="btn-daftar">Daftar Sekarang</a>
+  </nav>
   </header>
   <main>
     <section id="hero">
       <h1><?= htmlspecialchars($tagline) ?></h1>
-      <p> Temukan kursus teknologi yang relevan untuk meningkatkan keterampilan Anda. </p> <a href="#katalog"> Lihat Katalog Kursus </a>
+      <p> Temukan kursus teknologi yang relevan untuk meningkatkan keterampilan Anda. 
+      </p> 
+      <a href="#katalog"> Lihat Katalog Kursus </a>
       <a href="fee-calculator.php">Lihat Estimasi Biaya</a>
     </section>
     <section id="keunggulan">
@@ -163,9 +176,9 @@ $courses = [
       </ol>
     </section>
     <section id="media">
-      <h2>Kenali Program Kami</h2> <img src="assets/images/hero-kursus.jpg" alt="Mahasiswa sedang mengikuti kegiatan kursus komputer" width="640">
+      <h2>Kenali Program Kami</h2> <img src="assets/img/logo.jpg" alt="Mahasiswa sedang mengikuti kegiatan kursus komputer" width="640">
       <h3>Video Singkat</h3> <video controls width="640">
-        <source src="assets/video/intro-kursus.mp4" type="video/mp4"> Browser Anda tidak mendukung video HTML5.
+        <source src="assets/video/intro-kursusku.mp4" type="video/mp4"> Browser Anda tidak mendukung video HTML5.
       </video>
       <p> <a href="https://www.php.net/" target="_blank" rel="noopener"> Dokumentasi PHP </a> </p>
     </section>
